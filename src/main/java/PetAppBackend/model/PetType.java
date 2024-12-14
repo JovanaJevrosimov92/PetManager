@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Table(name = "pet_types")
@@ -24,9 +23,17 @@ public class PetType {
     @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets;
 
+
     public PetType(Long id, String name) {
         this.id=id;
         this.name=name;
+    }
+
+    public PetType(String name){
+        this.name=name;
+    }
+
+    public PetType (){
     }
 
     public String getName() {

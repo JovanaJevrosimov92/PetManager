@@ -1,5 +1,6 @@
 package PetAppBackend.controller;
 
+import PetAppBackend.config.UserSession;
 import PetAppBackend.model.DTO.LoginUserDTO;
 import PetAppBackend.model.DTO.RegisterUserDTO;
 import PetAppBackend.model.Role;
@@ -7,6 +8,7 @@ import PetAppBackend.model.User;
 import PetAppBackend.repo.RoleRepository;
 
 import PetAppBackend.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -36,10 +38,20 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UserSession userSession;
+
     @GetMapping("/login")
     public String getLoginPage(Model model) {
         if (!model.containsAttribute("loginUserDTO")) {
             model.addAttribute("loginUserDTO", new LoginUserDTO());
+        }
+        return "login";
+    }
+    @GetMapping("/register")
+    public String getRegisterPage(Model model) {
+        if (!model.containsAttribute("registerUserDTO")) {
+            model.addAttribute("registerUserDTO", new RegisterUserDTO());
         }
         return "login";
     }
@@ -65,6 +77,9 @@ public class UserController {
         if (!passwordEncoder.matches(loginUserDTO.getPassword(), user.get().getPassword())) {
             return ResponseEntity.status(401).body("Invalid username or password");
         }
+
+        userSession.login(user.get());
+        System.out.println("username: "+ user.get().getUsername());
 
         return ResponseEntity.ok("Login successful");
     }

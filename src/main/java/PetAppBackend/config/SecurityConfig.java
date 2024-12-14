@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable) // CSRF nije potreban za REST API
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/register", "/api/users/login").permitAll()
+                        .requestMatchers("/api/users/register", "/api/users/login","/api/pets/**","/api/pet-types").permitAll()
                         .requestMatchers("/home","/pets/**","/appointments/**").authenticated()// Dozvoli bez autentifikacije
                         .anyRequest().authenticated() // Sve ostalo zahteva autentifikaciju
                 )

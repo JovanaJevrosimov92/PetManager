@@ -9,6 +9,7 @@ import PetAppBackend.repo.RoleRepository;
 import PetAppBackend.repo.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -50,6 +51,9 @@ public class UserService {
 
     // pronalaženje korisnika po imenu korisnika
     public Optional<User> findUserByUsername(String username) {
+        System.out.println("Searching for user with username: "+username);
+        Optional<User> user = userRepository.findByUsername(username);
+        System.out.println("User found: "+user);
         return userRepository.findByUsername(username);
     }
 
