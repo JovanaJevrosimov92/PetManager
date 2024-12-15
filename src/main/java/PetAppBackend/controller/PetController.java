@@ -10,6 +10,7 @@ import PetAppBackend.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -66,19 +67,22 @@ public class PetController {
     @PostMapping("/add")
     public ResponseEntity<?> addPet(@Valid @RequestBody AddPetDTO addPetDTO, BindingResult bindingResult) {
         System.out.println("Entering addPEt controller ");
+        System.out.println("UserSession name: "+userSession.getUsername());
+        System.out.println("UserSession id: "+ userSession.getId());
         if(bindingResult.hasErrors()){
             Map<String,String> errors = new HashMap<>();
             bindingResult.getFieldErrors().forEach(error -> errors.put(error.getField(),error.getDefaultMessage()));
             System.out.println("errors: "+errors);
             return ResponseEntity.badRequest().body(errors);
         }
+        if(userSession.getUsername()==null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unathorized acess. Please log in.");
+        }
 
 
         System.out.println("UserSession name: "+userSession.getUsername());
         System.out.println("UserSession id: "+ userSession.getId());
-        if(!userSession.isUserLogged()){
-            return ResponseEntity.status(401).body("User is not logged in");
-        }
+
 
         try{
             Optional<User> userOptional = userService.findUserByUsername(userSession.getUsername());

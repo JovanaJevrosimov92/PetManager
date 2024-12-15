@@ -19,7 +19,7 @@ public class PetTypeController {
     private PetTypeRepository petTypeRepository;
 
     @GetMapping
-    public ResponseEntity<List<String>> getAllPetTypes() {
+    public ResponseEntity<List<String>> getPetTypes() {
         List<String> petTypes = petTypeRepository.findAll()
                 .stream()
                 .map(PetType::getName)

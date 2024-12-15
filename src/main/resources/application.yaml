@@ -1,4 +1,11 @@
 spring:
+  session:
+    cookie:
+      name: JSESSIONID
+      path: /
+      http-only: true
+      same-site: none
+      secure: false
   jpa:
     properties:
       hibernate:
@@ -33,4 +40,11 @@ logging:
       nodeValue: WARN
     blog: WARN
 server:
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+      tracking-modes:
+        - COOKIE
   port: 8081

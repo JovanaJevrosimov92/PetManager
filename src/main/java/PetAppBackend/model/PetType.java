@@ -8,6 +8,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+
 @AllArgsConstructor
 @Builder
 @Table(name = "pet_types")

@@ -40,7 +40,7 @@ public class PetService {
     //za dodavanje novog ljubimca su mi potrebni svi podaci za ljubimca plus koji je tip
     public Pet addPet(AddPetDTO addPetDTO) {
         System.out.println("Entering addPet service method... ");
-    System.out.println("DTO type: "+ addPetDTO.getType());
+        System.out.println("DTO type: "+ addPetDTO.getType());
 
         //proveravam da li u repou za tipove postoji uopste tip koji se unosi (macka, pas itd)
         //i ako nema, bacam exception
@@ -52,14 +52,14 @@ public class PetService {
         Optional<User> userOptional = userRepository.findByUsername(userSession.getUsername());
         if(userOptional.isEmpty()) {
             throw new IllegalArgumentException("Owner not found!");
-                       }
+        }
         User setOwner = userOptional.get();
         Pet pet = modelMapper.map(addPetDTO, Pet.class);
         pet.setOwner(setOwner);
         pet.setType(petType);
 
         //cuvam podatke
-       return petRepository.save(pet);
+        return petRepository.save(pet);
 
     }
 

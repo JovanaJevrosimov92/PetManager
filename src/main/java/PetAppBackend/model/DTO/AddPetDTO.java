@@ -17,8 +17,10 @@ public class AddPetDTO {
     @NotBlank(message = "Pet name is required.")
     private String name;
     @NotNull(message = "Pet age is required.")
+    @Min(message = "Age cannot be negative number", value = 0)
     private int age;
     @NotBlank(message = "Pet type is required.")
+
     private String type;
 
     private boolean vaccinated;
