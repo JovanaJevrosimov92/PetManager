@@ -1,0 +1,241 @@
+/* Globalni stilovi */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    position: relative;
+}
+
+/* Overlay za pozadinsku sliku */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Tamni overlay */
+    z-index: -1;
+}
+
+/* Navigacija */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50; /* Zelena dugmad */
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #388E3C;
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 3em;
+    margin-top: 20px;
+}
+
+.btn-home {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-home:hover {
+    background-color: #388E3C;
+}
+
+/* Uvodni tekst */
+.intro {
+    text-align: center;
+    margin: 20px 0;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.text-link {
+    color: #FFD700;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.text-link:hover {
+    color: #FFA500;
+}
+
+/* Dugmad za login/register ispod Welcome */
+.actions .btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #6ABF4B; /* Neutralna zelena */
+    transition: background-color 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actions .btn:hover {
+    background-color: #4E8B37;
+}
+
+/* Naslov za galeriju */
+.image-gallery h2 {
+    text-align: center;
+    color: #FFD700;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Galerija slika */
+.image-gallery {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Forma */
+.form-section {
+    margin: 50px auto;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(34, 34, 34, 0.95); /* Bledo crna pozadina */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section div {
+    margin-bottom: 15px;
+}
+
+.form-section label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: white;
+}
+
+.form-section input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #555;
+    color: white;
+}
+
+.form-section input::placeholder {
+    color: #bbb;
+}
+
+.form-section input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Error Messages */
+.error {
+    color: #ff4d4d; /* Crvena boja za validaciju */
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Button Styles */
+.form-section .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.form-section .btn:hover {
+    background-color: #388E3C;
+}
+
+.form-section .text-link {
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-section .text-link:hover {
+    color: #388E3C;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Manager - Home</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <h1>Welcome to Your Pet Manager!</h1>
+</header>
+
+<main>
+    <section class="pet-gallery">
+        <h2>Meet Your Pets</h2>
+        <div class="gallery">
+            <img th:src="@{/images/pet1.jpg}" alt="Your Cat" class="gallery-image">
+            <img th:src="@{/images/pet2.jpg}" alt="Your Dog" class="gallery-image">
+            <img th:src="@{/images/pet3.jpg}" alt="Your parrot" class="gallery-image">
+        </div>
+    </section>
+
+    <section class="actions">
+        <h2>What would you like to do?</h2>
+        <div class="button-container">
+            <a th:href="@{/pets/add}" class="btn">Add Pet</a>
+            <a th:href="@{/appointments}" class="btn">View Appointments</a>
+            <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pet Manager. All rights reserved.</p>
+</footer>
+</body>
+</html>

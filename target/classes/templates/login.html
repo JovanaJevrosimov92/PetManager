@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Manager - Login</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <a th:href="@{/}" class="nav-btn">Home</a>
+    </nav>
+
+    <h1>Login to Pet Manager</h1>
+</header>
+
+<main>
+    <section class="form-section">
+        <div class="error" th:if="${error}" th:text="${error}"></div>
+
+
+        <div class="form-container">
+            <form th:action="@{/login}" th:object="${loginUserDTO}" method="post">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" th:field="*{username}" placeholder="Enter your username" required>
+                    <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" th:field="*{password}" placeholder="Enter your password" required>
+                    <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                </div>
+                <div>
+                    <button type="submit" class="btn">Login</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pet Manager. All rights reserved.</p>
+</footer>
+</body>
+</html>

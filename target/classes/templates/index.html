@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Manager - Welcome</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<nav>
+    <a th:href="@{/}" class="nav-btn">Home</a>
+    <ul>
+        <li><a th:href="@{/register}" class="nav-btn">Register</a></li>
+        <li><a th:href="@{/login}" class="nav-btn">Login</a></li>
+    </ul>
+</nav>
+<header>
+    <h1>Welcome to Pet Manager!</h1>
+</header>
+
+<main>
+    <section>
+        <div class="intro">
+            <p>Manage your pets with ease. Keep track of their medical records, appointments, and much more!</p>
+            <p>Start your journey with us by <a th:href="@{/login}" class="text-link">logging in</a> or <a th:href="@{/register}" class="text-link">registering</a> today!</p>
+        </div>
+
+    </section>
+
+    <section class="image-gallery">
+        <h2>Meet Our Pets!</h2>
+        <div class="gallery">
+            <img th:src="@{/images/little-parrot.jpg}" alt="Parrot" class="gallery-image">
+            <img th:src="@{/images/puppy.jpg}" alt="Puppy" class="gallery-image">
+            <img th:src="@{/images/dog-and-cat.jpg}" alt="Dog and Cat" class="gallery-image">
+            <img th:src="@{/images/fish.jpg}" alt="Fish" class="gallery-image">
+            <img th:src="@{/images/turtles.jpg}" alt="Turtles" class="gallery-image">
+            <img th:src="@{/images/rabbit.jpg}" alt="Rabbit" class="gallery-image">
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Pet Manager. All rights reserved.</p>
+</footer>
+</body>
+</html>
